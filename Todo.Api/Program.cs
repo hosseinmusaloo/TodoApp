@@ -1,10 +1,8 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
-using Todo.Api;
 using Todo.Api.Data;
 using Todo.Api.Tasks;
-using Task = System.Threading.Tasks.Task;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -38,7 +36,7 @@ var app = builder.Build();
     app.Run();
 }
 
-static async Task EnsureDatabaseCreated(WebApplication app)
+static async System.Threading.Tasks.Task EnsureDatabaseCreated(WebApplication app)
 {
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();

@@ -14,8 +14,9 @@ public static class TaskEndpoints
         const string basePath = "/tasks";
         const string tag = "Tasks";
 
-        var group = app.MapGroup(basePath)
-                       .WithTags(tag);
+        var group = app
+            .MapGroup(basePath)
+            .WithTags(tag);
 
         group
             .MapEndpoint<GetTasksEndpoint>()

@@ -20,7 +20,9 @@ public class UpdateTaskEndpoint : IEndpoint
         CancellationToken ct)
     {
         if (id != request.Id)
+        {
             return TypedResults.BadRequest();
+        }
 
         var rowsAffected = await db.Tasks
             .Where(t => t.Id == id)
