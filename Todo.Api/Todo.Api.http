@@ -1,6 +1,51 @@
-@Todo.Api_HostAddress = http://localhost:5102
+@TodoApi_HostAddress = https://localhost:7034
 
-GET {{Todo.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### GET all todos
+# Retrieves a list of all tasks
+
+GET {{TodoApi_HostAddress}}/api/tasks
 
 ###
+
+### GET task by Id
+# Retrieves a single task by ID
+
+GET {{TodoApi_HostAddress}}/api/tasks{id}
+
+###
+
+### POST create new task
+# Creates a new task
+
+POST {{TodoApi_HostAddress}}/api/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Read a book",
+  "description": "Read 30 pages of a novel",
+  "dueDate": "2025-10-10T14:00:00"
+}
+
+###
+
+### PUT update existing task
+# Updates an existing task (by ID)
+
+PUT {{TodoApi_HostAddress}}/tasks/{id}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "",
+  "title": "Read a technical article",
+  "description": "Read an article about .NET performance",
+  "dueDate": "2025-10-10T14:00:00"
+}
+
+###
+
+### DELETE task by ID
+# Deletes a specific task by ID
+
+DELETE {{TodoApi_HostAddress}}/tasks/{id}
