@@ -11,7 +11,7 @@ public static class TaskEndpoints
 {
     public static void MapTasksEndpoints(this IEndpointRouteBuilder app)
     {
-        const string basePath = "/tasks";
+        const string basePath = "/api/tasks";
         const string tag = "Tasks";
 
         var group = app

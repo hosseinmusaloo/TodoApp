@@ -30,8 +30,8 @@ var app = builder.Build();
 
     app.UseHttpsRedirection();
 
-    app.MapGroup("/api")
-       .MapTasksEndpoints();
+    // Configure the Endpoints
+    app.MapTasksEndpoints();
 
     app.Run();
 }
@@ -42,3 +42,5 @@ static async System.Threading.Tasks.Task EnsureDatabaseCreated(WebApplication ap
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await db.Database.MigrateAsync();
 }
+
+public partial class Program;
